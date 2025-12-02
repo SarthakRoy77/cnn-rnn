@@ -1,4 +1,2 @@
-# Convolutional Neural Networks
-This project contains convolutional neural networks code implemented on the MNIST data
-
-## Notes
+# Convolutional Neural Network
+This file contains the convolutional neural network files 
