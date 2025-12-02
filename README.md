@@ -1,2 +1,2 @@
-# Convolutional Neural Network
-This file contains the convolutional neural network files 
+# CNN, GRU, RNN, LSTM
+This file contains the CNN,GRU,RNN,LSTM files of mine 
