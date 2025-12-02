@@ -11,7 +11,7 @@ import torchvision.transforms as transforms#Importing the data transformer
 class CNN(nn.Module):
     def __init__(self, input_channels=1, num_classes=10):
         super(CNN, self).__init__()
-        self.conv1 = nn.Conv2d(in_channels=1, out_channels=8, kernel_size=(3,3), stride=(1,1), padding=(1,1))
+        self.conv1 = nn.Conv2d(in_channels=input_channels, out_channels=8, kernel_size=(3,3), stride=(1,1), padding=(1,1))
         self.pool = nn.MaxPool2d(kernel_size=(2,2), stride=(2,2))
         self.conv2 = nn.Conv2d(in_channels = 8, out_channels= 16, kernel_size=(3,3), stride=(1,1), padding=(1,1)) 
         self.fc1 = nn.Linear(16*7*7, num_classes)
@@ -102,4 +102,5 @@ def save_model(model):
         torch.save(model.state_dict(), f)
         print("Model saved to model.pth")
 
+save_model(model)
 #Saving the model state dict which contains all the weights and biases of the model into a file named model.pth
