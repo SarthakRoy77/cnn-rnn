@@ -1,0 +1,56 @@
+
+What is a RNN??
+RNN means Recurrent Neural Networks designed to handle a sequence of data
+RNN has loops allowing them to use information from past, 
+They remember inputs from previous steps,allowing them to analyze context in data like word in sentences
+
+What's a loop??
+We call this loop a "hidden state", each hidden state carries what the model has learned from the previos inputs
+impossible to catch a dependency on the data
+
+Setups:
+1.Sequence to sequence 
+Here a input of sequence is given and the output is also a sequence
+one of the example is stock prices
+
+2.Sequence to Vector
+Here a input of sequence is given and the output is a vector for example We
+can give a sequence of reviews and it will provide a sentiment score
+
+3.Vector to sequence
+In this a vector is given with a expected series of output such as caption generator
+
+4.Encoder Decoder
+Here we feed the encoder data into the RNN and it provides with an vector which is decoded
+to provide a series of outputs
+
+Issues:
+The main issue with the RNN model is that the gradients become very small or very large 
+to address these issues the experts have come with different RNN architectures 
+such as "Gated Recurrent Units [GRU]" and "Long Short Term Memory [LSTM]" 
+
+What is an LSTM??
+LSTM or otherwise knows as Long Short Term Memory is a type of RNN
+which adds an internal state into the RNN node to solve the Long Term Memory problem
+
+What is the Internal State??
+The internal state is actually a cell known as an LSTM Cell which consists of three parts of gates 
+i.e Forget, Input, Output Gate 
+
+Forget Gate: It finds out what part can be forgotten .
+Input Gate: What new information should be added or removed .
+Output Gate: It finds out of all the information what exactly is the output
+
+These Gates can be assigned a number between 0 to 1 , 0 meaning the gate is closed and vice versa
+
+Use cases of LSTM:
+Machine Translation, Q/A Chatbots
+
+What is a CNN??
+CNN or otherwise known as Convolutional Neural Network is a area of deep learning
+specializing in pattern recognition.The pattern recognition is performed by "filters" inside the nodes.
+A filter is usually a three by three block in which we can specify what to look for.
+
+What is pooling??
+Pooling is a process in when the array of numbers outputed by the filter are joined .
+This is to obtain a better understanding of what the image is of.
