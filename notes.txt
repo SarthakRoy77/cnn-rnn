@@ -54,3 +54,7 @@ A filter is usually a three by three block in which we can specify what to look 
 What is pooling??
 Pooling is a process in when the array of numbers outputed by the filter are joined .
 This is to obtain a better understanding of what the image is of.
+
+What is a Bidirectional Long Short Term Memory(BiLSTM)??
+The main difference between a LSTM or Long Short Term Memory and a BiLSTM or Bidirectional Long Short Term Memory 
+is that BiLSTM not only goes forward but also backwards so the no. of layers will be doubled because of the same.
