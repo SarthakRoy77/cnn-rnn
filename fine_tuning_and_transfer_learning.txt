@@ -1,0 +1,13 @@
+What is fine tuning and transfer learning??
+It is when we import models and then change the architecture and tune the hyperparameters accordingly
+The first step is to load the model :
+torchvision.models.nameofthemodel(pretrained=bool)
+
+The second step is to change the architecture accordingly and to do 
+so we first need to know the architecture we can do it by:
+print(model) / print(dir(model))
+
+Then just change the architecture:
+model.fc = nn.Linear(x,x) and so on
+
+Then just change the hyperparameters to boost accuracy
