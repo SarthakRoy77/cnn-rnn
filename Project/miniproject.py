@@ -27,7 +27,7 @@ class CIFAR10A(nn.Module):
         x = self.fc5(x)
 
 
-model = CIFAR10A(1024, 10)
+model = CIFAR10A(1024, 10).to(device)
 
 #Hyper-parameter
 lr = 1e-4
@@ -44,11 +44,43 @@ test_loader = DataLoader(test_dataset, batch_size=64, shuffle=False)
 train_loader = DataLoader(train_dataset, batch_size=64, shuffle=True)
 
 #Training loop
+for batch_idx, (w_data ,target) in enumerate(train_loader):
+    w_data = w_data.to(device)
+    target = target.to(device)
 
+    #Flatten the image
+    w_data = w_data.reshape(w_data.shape[0], -1)
+
+    #Forward pass
+    scores = model(w_data)
+    loss = criterion(scores,target)
+
+    #Backward pass
+    torch.zero_grad()
+    loss.backward()
+    optimizer.step()
 
 #Accuracy function
 def check_accuracy(model, test_loader):
-    pass
+    num_samples = 0
+    num_correct = 0
 
+    with torch.no_grad():
+        for x, y in test_loader:
+            x.to(device)
+            x.to(device)
+            x = x.reshape(x.shape[0], -1)
+            scores = model(x)
+            _, predictions = scores.max(1)
+            if predictions.shape[0] == y.shape[0]:
+                num_correct += (predictions == y).sum()
+                num_samples += predictions.size(0)
+            
+    acc = float(num_correct)/float(num_samples)
+    print(f'Accuracy: {acc*100:.2f}%')
+
+    model.train()
+
+check_accuracy(model, test_loader)
 
 
