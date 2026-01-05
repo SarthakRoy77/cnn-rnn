@@ -1,7 +1,7 @@
 #Importing the modules from torch libraries and also loading the data 
 import torch #importing the main module
 import torch.nn as nn #import the neural network module from torch
-import torch.optim as optim #importing the optimizer algorithims
+import torch.optim as optim #importing the optimizer algorithms
 import torch.nn.functional as F #importing the functional key 
 from torch.utils.data import DataLoader #importing the data initializer
 import torchvision.datasets as datasets #Importing the data
@@ -25,7 +25,7 @@ class CNN(nn.Module):
         x = self.fc1(x)
 
         return x
-# Setup the device
+# Set up the device
 device = torch.device("cpu")
 #Hyperparameters
 batch = 64
@@ -43,12 +43,12 @@ test_loader = DataLoader(dataset=test_dataset, batch_size=batch, shuffle=True)
 #Setting up the device and sending it to cpu
 model = CNN().to(device)
 
-#Loss and Optmizer
+#Loss and Optimizer
 # A loss function is to measure how bad or good a models prediction are to the actual results
 #It gives us a single number probably decimals
 #Entropy Loss functions are used for classification problems such as Cross, BinaryCross, Sparse, Categorical etc.
-#A optimizer is used to change weights to minimize bad predictions 
-#Adam is a optimizer that combines the power of RMSprop and AdaGrad so it is very suitable for almost every type of neural networks
+#An optimizer is used to change weights to minimize bad predictions
+#Adam is an optimizer that combines the power of RMS Prop and AdaGrad so it is very suitable for almost every type of neural networks
 #In other words it uses recent gradients and historic gradients too
 criterion = nn.CrossEntropyLoss()
 optimizer = optim.Adam(model.parameters(), lr=learning_rate)
@@ -79,17 +79,17 @@ def check_accuracy(loader, model): #making the function to check the accuracy of
         print("Checking accuracy on testing data data")
     num_correct = 0  #This initializes num_correct
     num_samples = 0 #This initializes num_samples
-    model.eval() #puts the model into evalution mode
+    model.eval() #puts the model into evaluation mode
 
     with torch.no_grad():
-        for x,y in loader:  #In each loader taking out the image tensors and expected result an sending them into the device
+        for x,y in loader:  #In each loader taking out the image tensors and expected result and sending them into the device
             x = x.to(device)
             y = y.to(device)
             
 
             scores = model(x) #forwarding the data
             _, predictions = scores.max(1) #taking the predictions
-            num_correct += (predictions == y).sum() # checking the if the prediction is correct
+            num_correct += (predictions == y).sum() # checking if the prediction is correct
             num_samples += predictions.size(0) #adding it into the samples
         print(f"Got {num_correct}/ {num_samples} with accuracy {float(num_correct)/float(num_samples)*100:.2f}")
 
