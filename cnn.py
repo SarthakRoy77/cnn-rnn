@@ -25,6 +25,7 @@ class CNN(nn.Module):
         x = self.fc1(x)
 
         return x
+
 # Set up the device
 device = torch.device("cpu")
 #Hyperparameters
