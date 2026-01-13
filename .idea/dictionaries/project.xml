@@ -2,6 +2,9 @@
   <dictionary name="project">
     <words>
       <w>numclasses</w>
+      <w>preds</w>
+      <w>tsscores</w>
+      <w>tstarget</w>
     </words>
   </dictionary>
 </component>
